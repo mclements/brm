@@ -1,0 +1,20 @@
+#' @title  Fitting Binary Regression Models
+#'
+#' @description The function \code{brm} in this package provides an alternative to generalized linear models for fitting binary regression models, in which both the response \eqn{y} and the primary exposure of interest \eqn{x} are binary. This is  especially useful if the interest lies in estimating the association between \eqn{x} and \eqn{y}, and how that association varies as a function of (other) covariates \eqn{v}.
+#' 
+#' Unlike \code{glm}, which uses a single link function for the outcome, \code{brm} separates the nuisance model from the target model. This separation provides opportunities to choose nuisance models independently of the target model. To see why this is important, we may contrast it with the use of a GLM to model the log relative risk. In this setting one might use a Poisson regression (with interaction term) \eqn{log P(y = 1|x, va, vb) = \alpha * x * va + \beta * vb} (though such a model ignores the fact that \eqn{y} is binary); here \eqn{va} and \eqn{vb} are subsets of \eqn{v}. Such a Poisson model can be seen as a combination of two parts: a target model \eqn{log RR(va) = \alpha * va} and a nuisance model \eqn{log P(y = 1|x = 0, vb) = \beta *  vb}. However, this nuisance model is variation dependent of the target model so that predicted probabilities may go outside of \eqn{[0,1]}. Furthermore, one cannot solve this problem under a GLM framework as with a GLM, the target model and nuisance model are determined  \emph{simultaneously} through a link function.
+#' 
+#'   More specifically, if the target model is a linear model on the conditional log Relative Risk (log RR) or ('logistically' transformed) conditional Risk Difference (atanh RD), \code{brm} fits a linear nuisance model for the conditional log Odds Product (log OP).  If the target model is a linear model on the conditional log Odds Ratio (log OR), \code{brm} fits a linear nuisance model on the conditional logit baseline risk, logit P(y = 1|x = 0, vb). Note in this case the target and nuisance models combine to form a simple logistic regression model (which is fitted using \code{glm}). 
+#'   
+#'    \code{brm} fits the three target models described above as they are simple and the parameter space is unconstrained. \code{brm} fits the nuisance models above as they are variation independent of the corresponding target model. This variation independence greatly facilitates parameter estimation and interpretation. 
+#'    
+#'    \code{brm} also provides doubly robust fitting as an option such that the estimates for \eqn{\alpha} are still consistent and asymptotically normal even when the nuisance model is misspecified, provided that we have a correctly specified logistic model for the exposure probability \eqn{P(x=1|v)}. Such doubly robust estimation is only possible for the Relative Risk and Risk Difference, but not the Odds Ratio.
+#'    
+#'   See Richardson et al. (2017) for more details.
+#'
+#' @references Thomas S. Richardson, James M. Robins and Linbo Wang. "On Modeling and Estimation for the Relative Risk and Risk Difference." Journal of the American Statistical Association: Theory and Methods (2017).
+#' 
+#'
+#' @docType package
+#' @name brm-package
+NULL
