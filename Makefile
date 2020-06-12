@@ -1,5 +1,5 @@
 check: build
-	R CMD check --as-cran brm_1.1.tar.gz
+	R-devel CMD check --as-cran brm_1.1.tar.gz
 
 build:
-	R CMD build .
+	R-devel CMD build .
