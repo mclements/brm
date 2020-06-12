@@ -2,7 +2,7 @@ Package: brm
 Type: Package
 Title: Binary Regression Model
 Version: 1.1
-Date: 2020-02-16
+Date: 2020-06-11
 Author: Linbo Wang, Mark Clements, Thomas Richardson
 Maintainer: Linbo Wang <linbo.wang@utoronto.ca>
 Description: Fits novel models for the conditional relative risk, risk difference and odds ratio.
