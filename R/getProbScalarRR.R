@@ -84,7 +84,7 @@ getProbRR = function(logrr, logop = NA) {
     if(is.matrix(logrr) && ncol(logrr) == 2){
         logop = logrr[,2]
         logrr = logrr[,1]
-    } else if(is.na(logop) && length(logrr) == 2){
+    } else if(length(logop)==1 && is.na(logop) && length(logrr) == 2){
         logop = logrr[2]
         logrr = logrr[1]
     }

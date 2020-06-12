@@ -77,7 +77,7 @@ getProbRD = function(atanhrd, logop) {
     if(is.matrix(atanhrd) && ncol(atanhrd) == 2){
         logop = atanhrd[,2]
         atanhrd = atanhrd[,1]
-    } else if(is.na(logop) && length(atanhrd) == 2){
+    } else if(length(logop)==1 && is.na(logop) && length(atanhrd) == 2){
         logop = atanhrd[2]
         atanhrd = atanhrd[1]
     }
