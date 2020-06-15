@@ -4,7 +4,7 @@ bibentry(
     year="2017",
     volume="112",
     number="519",
-    pages="1121–1130"
+    pages="1121-1130",
     author=personList(as.person("T. S. Richardson"),
                       as.person("J. M. Robins"),
                       as.person("L. Wang")),
