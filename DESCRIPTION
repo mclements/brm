@@ -11,7 +11,6 @@ RoxygenNote: 7.0.2
 NeedsCompilation: no
 Suggests: knitr, rmarkdown
 Imports: stats
-Packaged: 2020-02-18 13:52:36 UTC; liw758
-Repository: CRAN
-Date/Publication: 2016-09-17 07:10:51
-VignetteBuilder: knitr
+URL: http://github.com/mclements/rstpm2
+BugReports: http://github.com/mclements/rstpm2/issues
+
